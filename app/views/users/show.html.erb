@@ -1,0 +1,12 @@
+<label>Name:</label>
+<%= @user.name %><br>
+<label>Tickets:</label>
+<%= @user.tickets %><br>
+<label>Mood:</label>
+    <% if @user.happiness > @user.nausea %>
+        happy
+    <% else %>
+        sad
+    <% end %><br>
+<label>Height:</label>
+<%= @user.height %> inches
