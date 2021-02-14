@@ -25,10 +25,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def delete
-    session.destroy
-  end 
-
   private
   
   def user_params
