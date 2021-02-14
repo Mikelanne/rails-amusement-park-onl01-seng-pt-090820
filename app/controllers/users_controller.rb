@@ -1,4 +1,7 @@
+require 'pry'
 class UsersController < ApplicationController
+  helper UsersHelper
+
   def new
     @user = User.new
   end
@@ -15,11 +18,20 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    if @user && current_user
+      render :show
+    else
+      redirect_to root_path
+    end
   end
+
+  def delete
+    session.destroy
+  end 
 
   private
   
   def user_params
-    params.require(:user).permit(:name, :password, :nausea, :happiness, :tickets, :height)
+    params.require(:user).permit(:name, :password, :nausea, :happiness, :tickets, :height, :admin)
   end
 end

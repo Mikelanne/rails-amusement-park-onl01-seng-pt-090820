@@ -3,10 +3,10 @@
 <label>Tickets:</label>
 <%= @user.tickets %><br>
 <label>Mood:</label>
-    <% if @user.happiness > @user.nausea %>
-        happy
-    <% else %>
-        sad
-    <% end %><br>
+<%= mood(@user) unless @user.happiness == nil || @user.nausea == nil %><br>
 <label>Height:</label>
-<%= @user.height %> inches
+<%= @user.height %> inches<br>
+<%= "ADMIN" unless @user.admin == false %>
+
+
+<%= link_to "Log Out", logout_path %>

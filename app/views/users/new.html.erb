@@ -1,6 +1,4 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
-
+<h1>Sign Up</h1>
 <%= form_for(@user) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %><br>
@@ -14,5 +12,7 @@
     <%= f.number_field :tickets %><br>
     <%= f.label :height %>
     <%= f.number_field :height %><br>
+    <%= f.label "Check box if you are a theme park owner" %>
+    <%= f.check_box :admin, {}, true, false %><br>
     <%= f.submit %>
 <% end %>
